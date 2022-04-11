@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    * {
+      box-sizing: border-box;
+      outline: none;
+      border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
+      border-bottom-style: hidden;
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      font-size: 10px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #000;
+      color: rgb(255, 255, 255);
+      /* background: url("main\ bg.jpg") no-repeat center center/cover;
+      box-shadow: inset 20rem 20rem 30rem #000000,
+        inset -12rem -10rem 25rem #000000;*/
+    } 
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+    .sign-logo {
+      width: 100%;
+      height: 93vh;
+      position: relative;
+      background: url("landing-bg.jpg") no-repeat center center/cover;
+    }
+
+    .sign-logo::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: inset 5rem 5rem 5rem 5rem #000000,
+        inset -12rem -10rem 25rem #000000;
+    }
+
+    .sign-logo-top {
+      position: relative;
+      z-index: 2;
+      height: 9rem;
+    }
+
+    .sign-logo-top img {
+      width: 17rem;
+      position: absolute;
+      top: 60%;
+      left: 12%;
+
+      transform: translate(-50%, -50%);
+      margin-left: 0;
+    }
+
+    .sign-logo-content {
+      position: relative;
+      z-index: 2;
+      width: 65%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 9rem;
+    }
+
+    .sign-log-content h1 {
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1.1;
+      margin: 0 0 2rem;
+    }
+
+    .sign-log-content p {
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 400;
+      font-size: 1.9rem;
+      line-height: 1.25;
+      margin: 0 0 2rem;
+    }
+
+    /* Full-width input fields */
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 1.5em;
+      margin: 0.5rem 0 2.2rem 0;
+      display: inline-block;
+      border: none;
+      background: #ffffff;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    hr {
+      border: 0.1rem solid #f1f1f1;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Set a style for all buttons */
+    button {
+      background-color: #04aa6d;
+      color: white;
+      padding: 1.4rem 2rem;
+      margin: 0.8rem 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    button:hover {
+      opacity: 1;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      padding: 1.4rem 2rem;
+      background-color: #f44336;
+    }
+
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn,
+    .signupbtn {
+      float: left;
+      width: 50%;
+    }
+
+    /* Add padding to container elements */
+    .container {
+      padding: 5rem;
+      /* padding-left: 40rem; */
+      /* padding-right: 40rem; */
+
+      position: relative;
+      z-index: 2;
+      width: 40%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .container h1 {
+      font-weight: 600;
+      font-size: 3rem;
+      line-height: 1.1;
+      margin: 0 0 2rem;
+      text-align: center;
+    }
+
+    .container p {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .footer {
+      max-width: 100%;
+      margin: 1rem auto;
+      overflow: auto;
+    }
+
+    .footer,
+    .footer a {
+      color: rgb(255, 255, 255);
+      padding-top: 2rem;
+      font-size: 1.4rem;
+      text-decoration: none;
+    }
+
+    .footer p {
+      margin-bottom: 1.5rem;
+      padding-left: 10rem;
+    }
+
+    .footer .footer-cols {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 2rem;
+      padding-left: 15rem;
+      padding-right: 150;
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+    }
+
+    .footer li {
+      line-height: 1.9;
+      list-style-type: none;
+    }
+
+    .footer .lang-select {
+      margin-top: 2rem;
+      color: rgb(255, 255, 255);
+      background-color: #000;
+      background-image: none;
+      border: 1px solid #333;
+      padding: 1rem 1.2rem;
+      border-radius: 0.5rem;
+    }
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+      .cancelbtn,
+      .signupbtn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 987) {
+      input[type="text"],
+    input[type="password"]{
+        width: 200%;
+      }
+      
+    }
+
+    @media (max-width: 768px) {
+
+      html {
+    font-size: 45%;
+  }
+
+    .footer .footer-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+  </style>
+
+  <!-- <header class="sign-logo"> -->
+  <!-- <div class="sign-logo-top">
+    <img src="logo.png" alt="" />
+    </div> -->
+  <!-- </header> -->
+  <body>
+    <form action="redirect.html">
+      <div class="sign-logo-top">
+        <img src="logo.png" alt="" />
+      </div>
+      <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr />
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required />
+
+        <label for="psw"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          required
+        />
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input
+          type="password"
+          placeholder="Repeat Password"
+          name="psw-repeat"
+          required
+        />
+
+        <label>
+          <input
+            type="checkbox"
+            checked="checked"
+            name="remember"
+            style="margin-bottom: 15px"
+          />
+          Remember me
+        </label>
+
+        <p>
+          By creating an account you agree to our
+          <a href="#" style="color: dodgerblue">Terms & Privacy</a>.
+        </p>
+
+        <div class="clearfix">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+        <p>
+          Already have an account?
+          <a href="login.html" style="color: dodgerblue">Log In</a>.
+        </p>
+      </div>
+    </form>
+  </body>
+
+  <footer class="footer">
+    <p>Questions? Call 1-866-579-7172</p>
+    <div class="footer-cols">
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Investor Relations</a></li>
+        <li><a href="#">Ways To Watch</a></li>
+        <li><a href="#">Corporate Information</a></li>
+        <li><a href="#">Netflix Originals</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Jobs</a></li>
+        <li><a href="#">Terms Of Use</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Account</a></li>
+        <li><a href="#">Redeem Gift Cards</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Speed Test</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Media Center</a></li>
+        <li><a href="#">Buy Gift Cards</a></li>
+        <li><a href="#">Cookie Preferences</a></li>
+        <li><a href="#">Legal Notices</a></li>
+      </ul>
+    </div>
+  </footer>
+</html>
